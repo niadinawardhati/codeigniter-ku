@@ -45,7 +45,7 @@
         </div>
       </nav>
       <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
-       Tambah
+       launch demo model
       </button>
 
       <table class="table table-light">
@@ -66,11 +66,34 @@
                    <td><?php echo $baris->nama ?></td>
                    <td><?php echo $baris->alamat ?></td>
                    <td>
-                      <button class="btn btn-dark" type="submit">ubah</button>
-                      <a class="btn btn-warning" href = "index.php/welcome/hapusOrang<?php echo $baris->id ?>">hapus</a>
+                      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ubahModal<?php echo $baris->id ?>" type="submit">ubah</button>
+                      <a class="btn btn-warning" href = "index.php/welcome/hapusOrang/<?php echo $baris->id ?>">hapus</a>
 
-            </td>
-          </tr>
+                    </td>
+                 </tr>
+
+          <div class="modal fade" id="ubahModal<?php echo $baris->id ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModalLabel">Orang</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                   </div>
+                   <form action= "welcome/ubahOrang" method="post">
+                      <div class="modal-body">
+                         <input type="hidder" nama="id" value="<?php echo $baris->id ?>">
+                         <input type="text" name="nama" class="form-control" value="<?php echo $baris->nama ?>">
+                         <bar>
+                         <input type="text" name="alamat" class="form-control" value="<?php echo $baris->alamat ?>">
+                      </div>
+                      <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                         <button type="submit" class="btn btn-primary">Save changes</button>
+                      </div>
+                   </form>
+                 </div>
+              </div>
+          </div> 
               <?php
              }
           ?>
@@ -86,7 +109,7 @@
               <h5 class="modal-title" id="exampleModalLabel">Orang</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action= "index.php/welcome/TambahOrang" method="post">
+            <form action= "welcome/TambahOrang" method="post">
             <div class="modal-body">
                     <input type="text" name="nama" class="form-control">
                     <bar>

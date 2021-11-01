@@ -39,7 +39,7 @@ class Welcome extends CI_Controller {
 
 		$this->model_orang->ProsesTambahOrang($nama, $alamat);
 
-		redirect('index.php/Welcome');
+		redirect('Welcome');
 	}
 
 	public function hapusOrang($id) {
@@ -49,5 +49,18 @@ class Welcome extends CI_Controller {
 		$this->Model_Orang->prosesHapusOrang($id);
 
 		redirect('welcome');
+	}
+
+	public function UbahOrang() {
+		$this->load->model('Model_Orang');
+		$this->load->helper('url');
+         
+		$id = $this->input->post("id");
+		$nama = $this->input->post("nama");
+		$alamat = $this->input->post("alamat");
+
+		$this->Model_Orang->ProsesUbahOrang($id, $nama, $alamat);
+
+		redirect('Welcome');
 	}
 }

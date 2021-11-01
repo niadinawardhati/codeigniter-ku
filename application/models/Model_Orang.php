@@ -20,6 +20,13 @@ class Model_Orang extends CI_Model {
 
       $this->db->query("DELETE FROM orang WHERE id = $id");
     }
+
+    public function ProsesUbahOrang($id, $nama, $alamat) {
+      $this->load->database();
+
+      var_export("UPDATE orang SET nama = '$nama', alamat = '$alamat' WHERE id = $id"); die;
+      $this->db->query("UPDATE orang SET nama = '$nama', alamat = '$alamat' WHERE id = $id");
+    }
 }
 
 ?>
