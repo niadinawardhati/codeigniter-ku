@@ -30,14 +30,14 @@ class Welcome extends CI_Controller {
 
 		$this->load->view('orang', $data);
 	}
-	public function TamabahOrang() {
+	public function TambahOrang() {
 		$this->load->model('Model_Orang');
 		$this->load->helper('url');
 
 		$nama = $this->input->post("nama");
 		$alamat = $this->input->post("alamat");
 
-		$this->model_orang->ProsesTambahOrang($nama, $alamat);
+		$this->Model_Orang->ProsesTambahOrang($nama, $alamat);
 
 		redirect('Welcome');
 	}

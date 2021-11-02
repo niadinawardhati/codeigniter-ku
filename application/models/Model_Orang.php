@@ -9,7 +9,7 @@ class Model_Orang extends CI_Model {
       return $hasil->result();
     }
 
-    public function ProsesTamabahOrang($nama, $alamat) {
+    public function ProsesTambahOrang($nama, $alamat) {
       $this->load->database();
       
       $this->db->query ("INSERT INTO orang(nama,alamat) VALUES('$nama','$alamat')");
@@ -24,7 +24,6 @@ class Model_Orang extends CI_Model {
     public function ProsesUbahOrang($id, $nama, $alamat) {
       $this->load->database();
 
-      var_export("UPDATE orang SET nama = '$nama', alamat = '$alamat' WHERE id = $id"); die;
       $this->db->query("UPDATE orang SET nama = '$nama', alamat = '$alamat' WHERE id = $id");
     }
 }

@@ -67,7 +67,7 @@
                    <td><?php echo $baris->alamat ?></td>
                    <td>
                       <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#ubahModal<?php echo $baris->id ?>" type="submit">ubah</button>
-                      <a class="btn btn-warning" href = "index.php/welcome/hapusOrang/<?php echo $baris->id ?>">hapus</a>
+                      <a class="btn btn-warning" href = "welcome/hapusOrang/<?php echo $baris->id ?>">hapus</a>
 
                     </td>
                  </tr>
@@ -81,7 +81,7 @@
                    </div>
                    <form action= "welcome/ubahOrang" method="post">
                       <div class="modal-body">
-                         <input type="hidder" nama="id" value="<?php echo $baris->id ?>">
+                         <input type="hidden" name="id" value="<?php echo $baris->id ?>">
                          <input type="text" name="nama" class="form-control" value="<?php echo $baris->nama ?>">
                          <bar>
                          <input type="text" name="alamat" class="form-control" value="<?php echo $baris->alamat ?>">
